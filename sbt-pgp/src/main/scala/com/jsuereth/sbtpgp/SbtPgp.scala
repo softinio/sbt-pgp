@@ -27,11 +27,12 @@ object SbtPgp extends AutoPlugin {
     def pgpKeyRing = PgpKeys.pgpKeyRing in Global
     def pgpPublicRing = PgpKeys.pgpPublicRing in Global
     def pgpSecretRing = PgpKeys.pgpSecretRing in Global
+    def gpgCommand = PgpKeys.gpgCommand in Global
 
     def usePgpKeyHex(id: String) = pgpSigningKey := Some(id)
     def signingSettings = PgpSettings.signingSettings
   }
-  // TODO - Maybe signing settigns should be a different plugin...
+  // TODO - Maybe signing settings should be a different plugin...
   override val projectSettings = PgpSettings.projectSettings
   override val globalSettings = PgpSettings.globalSettings
 }
